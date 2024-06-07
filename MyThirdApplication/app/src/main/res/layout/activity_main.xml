@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDo"
+        android:layout_width="40dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="230dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:soundEffectsEnabled="false"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRe"
+        android:layout_width="40dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#FF9800"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnDo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:soundEffectsEnabled="false"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMi"
+        android:layout_width="40dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnRe"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:soundEffectsEnabled="false"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFa"
+        android:layout_width="40dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#8BC34A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMi"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:soundEffectsEnabled="false"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSol"
+        android:layout_width="40dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#009688"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnFa"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:soundEffectsEnabled="false"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLya"
+        android:layout_width="40dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#03A9F4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnSol"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:soundEffectsEnabled="false"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSi"
+        android:layout_width="40dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLya"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:soundEffectsEnabled="false"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
