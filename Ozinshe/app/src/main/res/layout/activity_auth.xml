@@ -17,11 +17,13 @@
         app:srcCompat="@drawable/ic_auth_head" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
         android:ems="10"
+        android:hint="Сіздің email"
+        android:textColor="@android:color/darker_gray"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +35,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="14dp"
-        android:background="@null"
+        android:background="@color/white"
         android:src="@drawable/ic_auth_back"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
@@ -56,11 +58,13 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/passwordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="328dp"
         android:ems="10"
+        android:hint="Сіздің құпия сөзінің"
+        android:textColor="@android:color/darker_gray"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,11 +74,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="296dp"
-        android:text="TextView"
+        android:text="Құпия сөз"
+        android:textColor="#111827"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterButton
+    <ImageButton
         android:id="@+id/imageFilterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,16 +89,18 @@
         app:layout_constraintBottom_toTopOf="@+id/imageButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_auth_fpass" />
+        app:srcCompat="@drawable/ic_auth_fpass"
+        android:background="@color/white"/>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_auth_btn" />
+        android:src="@drawable/ic_auth_btn"
+        android:background="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
