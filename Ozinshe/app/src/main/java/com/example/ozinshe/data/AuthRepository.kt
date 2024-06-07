@@ -1,7 +1,7 @@
 package com.example.ozinshe.data
 
 class AuthRepository(private val apiService: ApiService) {
-    suspend fun signIn(email: String, password: String): AuthSignInResponse {
-        return apiService.signIn(SignInRequest(email, password))
+    suspend fun signUp(email: String, password: String, username: String): SignUpResponse {
+        return apiService.signUp(SignUpRequest(email, password, username))
     }
 }
