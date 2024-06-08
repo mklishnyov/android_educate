@@ -3,7 +3,6 @@ package com.example.ozinshe
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -55,7 +54,7 @@ class MainActivity: AppCompatActivity() {
         }
 
         button2.setOnClickListener {
-            startActivity(Intent(this, AuthActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

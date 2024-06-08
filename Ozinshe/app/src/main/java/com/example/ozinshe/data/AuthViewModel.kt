@@ -6,10 +6,21 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class AuthViewModel(private val repository: AuthRepository) : ViewModel() {
-    fun signUp(email: String, password: String, username: String, onResult: (SignUpResponse?) -> Unit) {
+    fun signUp(email: String, password: String, onResult: (SignInUpResponse?) -> Unit) {
         viewModelScope.launch {
             try {
-                val response = repository.signUp(email, password, username)
+                val response = repository.signUp(email, password)
+                onResult(response)
+            } catch (e: Exception) {
+                onResult(null)
+            }
+        }
+    }
+
+    fun signIn(email: String, password: String, onResult: (SignInUpResponse?) -> Unit) {
+        viewModelScope.launch {
+            try {
+                val response = repository.signIn(email, password)
                 onResult(response)
             } catch (e: Exception) {
                 onResult(null)

@@ -18,10 +18,13 @@
             android:name=".MainActivity">
         </activity>
         <activity
-            android:name=".AuthActivity">
+            android:name=".SignInActivity">
         </activity>
         <activity
             android:name=".SignUpActivity">
+        </activity>
+        <activity
+            android:name=".HomePage">
         </activity>
         <activity
             android:name=".SplashActivity"

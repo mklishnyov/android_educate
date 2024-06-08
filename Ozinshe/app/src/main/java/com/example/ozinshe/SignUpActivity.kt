@@ -1,9 +1,12 @@
 package com.example.ozinshe
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -25,10 +28,20 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivityRegBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val btnBack: ImageButton = findViewById(R.id.btn_back)
+        val linkToAuth = findViewById<TextView>(R.id.linkToAuth)
         val emailEditText: EditText = findViewById(R.id.emailEditText)
         val passwordEditText: EditText = findViewById(R.id.passwordEditText)
         val confirmPasswordEditText: EditText = findViewById(R.id.confirmPasswordEditText)
-        val signUpButton: Button = findViewById(R.id.signUpButton)
+        val signUpButton: ImageButton = findViewById(R.id.signUpButton)
+
+        btnBack.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        linkToAuth.setOnClickListener {
+            startActivity(Intent(this, SignInActivity::class.java))
+        }
 
         signUpButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -37,9 +50,10 @@ class SignUpActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
                 if (password == confirmPassword) {
-                    authViewModel.signUp(email, password, email) { response ->
+                    authViewModel.signUp(email, password) { response ->
                         if (response != null) {
                             Log.d("SignUpActivity", "Success: ${response.username}, Token: ${response.accessToken}")
+                            Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
                         } else {
                             Log.d("SignUpActivity", "Error: Registration failed")
                             Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()

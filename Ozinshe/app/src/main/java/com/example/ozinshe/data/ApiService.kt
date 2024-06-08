@@ -5,19 +5,21 @@ import retrofit2.http.POST
 
 interface ApiService {
     @POST("/auth/V1/signup")
-    suspend fun signUp(@Body request: SignUpRequest): SignUpResponse
+    suspend fun signUp(@Body request: SignInUpRequest): SignInUpResponse
+
+    @POST("/auth/V1/signin")
+    suspend fun signIn(@Body request: SignInUpRequest): SignInUpResponse
 }
 
-data class SignUpRequest(
+data class SignInUpRequest(
     val email: String,
     val password: String,
-    val username: String
 )
 
-data class SignUpResponse(
+data class SignInUpResponse(
     val id: Int,
-    val email: String,
     val username: String,
+    val email: String,
     val roles: List<String>,
     val accessToken: String,
     val tokenType: String
