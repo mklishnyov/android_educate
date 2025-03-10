@@ -1,21 +1,23 @@
 package com.example.ozinshe
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.ozinshe.databinding.ActivityHomepageBinding
 class HomePage : AppCompatActivity() {
 
-    lateinit var bottomNav : BottomNavigationView
+    private lateinit var binding: ActivityHomepageBinding
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.acrivity_homepage)
+        enableEdgeToEdge()
+        binding = ActivityHomepageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         loadFragment(HomeFragment())
-        bottomNav = findViewById(R.id.bottomNav) as BottomNavigationView
-        bottomNav.setOnItemSelectedListener {
+
+        binding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     loadFragment(HomeFragment())

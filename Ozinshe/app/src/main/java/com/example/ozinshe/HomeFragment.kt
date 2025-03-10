@@ -1,44 +1,38 @@
 package com.example.ozinshe
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import com.example.ozinshe.data.MoviesResponse
-import com.example.ozinshe.data.RetrofitInstance
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import com.example.ozinshe.data.MovieViewModel
 import com.example.ozinshe.databinding.FragmentHomeBinding
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
-class HomeFragment() : Fragment() {
+class HomeFragment : Fragment() {
+
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var textView: TextView
+    private val movieViewModel: MovieViewModel by viewModels()
+    private lateinit var moviePagerAdapter: MoviePagerAdapter
 
-    @SuppressLint("UseRequireInsteadOfGet")
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-        textView = view!!.findViewById(R.id.textView4)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fetchMovies()
-    }
 
-    private fun fetchMovies() {
-        lifecycleScope.launch {
-            try {
-                val response = RetrofitInstance.apiService.getMovies()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
+        movieViewModel.movies.observe(viewLifecycleOwner, Observer { movies ->
+            moviePagerAdapter = MoviePagerAdapter(movies)
+            binding.rvMovie.adapter = moviePagerAdapter
+        })
+
+        movieViewModel.fetchMovies()
     }
 }

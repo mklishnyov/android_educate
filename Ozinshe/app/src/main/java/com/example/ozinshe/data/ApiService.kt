@@ -12,6 +12,6 @@ interface ApiService {
     suspend fun signIn(@Body request: SignInUpRequest): SignInUpResponse
 
     @GET("/core/V1/movies")
-    suspend fun getMovies(): MoviesResponse.MoviesResponseItem
+    suspend fun getMovies(): List<MoviesResponse.MoviesResponseItem>
 
 }

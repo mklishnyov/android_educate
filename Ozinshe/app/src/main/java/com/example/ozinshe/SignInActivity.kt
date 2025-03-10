@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ozinshe.data.AuthRepository
@@ -23,7 +24,7 @@ class SignInActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -35,10 +36,12 @@ class SignInActivity: AppCompatActivity() {
 
         btnBack.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         linkToReg.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
+            finish()
         }
         signInButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -47,11 +50,10 @@ class SignInActivity: AppCompatActivity() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 authViewModel.signIn(email, password) { response ->
                     if (response != null) {
-                        Log.d("SignInActivity", "Success: ${response.username}, Token: ${response.accessToken}")
                         Toast.makeText(this, "Sign in successful", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, HomePage::class.java))
+                        finish()
                     } else {
-                        Log.d("SignInActivity", "Error: Sign in failed")
                         Toast.makeText(this, "Sign in failed", Toast.LENGTH_SHORT).show()
                     }
                 }

@@ -1,10 +1,16 @@
 package com.example.ozinshe
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.widget.ImageButton
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
@@ -17,7 +23,7 @@ class MainActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,13 +32,14 @@ class MainActivity: AppCompatActivity() {
         val button1: ImageButton = findViewById(R.id.button1)
         val button2: ImageButton = findViewById(R.id.button2)
 
-        val images = listOf(
-            Pair(R.drawable.pic_main1, R.drawable.ic_main_head),
-            Pair(R.drawable.pic_main2, R.drawable.ic_main_head2),
-            Pair(R.drawable.pic_main3, R.drawable.ic_main_head3)
+        val image = listOf(R.drawable.pic_main1, R.drawable.pic_main2, R.drawable.pic_main3)
+        val text = listOf(
+            getString(R.string.main_body1),
+            getString(R.string.main_body2),
+            getString(R.string.main_body3)
         )
 
-        val adapter = MainImageAdapter(images)
+        val adapter = MainImageAdapter(image, text)
         viewPager.adapter = adapter
         indicator.setViewPager(viewPager)
 
@@ -50,18 +57,12 @@ class MainActivity: AppCompatActivity() {
         })
 
         button1.setOnClickListener {
-            viewPager.setCurrentItem(images.size - 1, true)
+            viewPager.setCurrentItem(image.size - 1, true)
         }
 
         button2.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+            finish()
         }
     }
-
 }

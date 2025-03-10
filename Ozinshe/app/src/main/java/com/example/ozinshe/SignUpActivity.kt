@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ozinshe.data.AuthRepository
@@ -25,6 +26,7 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         binding = ActivityRegBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -37,10 +39,12 @@ class SignUpActivity : AppCompatActivity() {
 
         btnBack.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         linkToAuth.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
+            finish()
         }
 
         signUpButton.setOnClickListener {
@@ -52,10 +56,8 @@ class SignUpActivity : AppCompatActivity() {
                 if (password == confirmPassword) {
                     authViewModel.signUp(email, password) { response ->
                         if (response != null) {
-                            Log.d("SignUpActivity", "Success: ${response.username}, Token: ${response.accessToken}")
                             Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
                         } else {
-                            Log.d("SignUpActivity", "Error: Registration failed")
                             Toast.makeText(this, "Registration failed", Toast.LENGTH_SHORT).show()
                         }
                     }
