@@ -1,12 +1,9 @@
-package com.example.myfirstapplication
+package com.example.secondprogram
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.myfirstapplication.databinding.ActivityMainBinding
+import com.example.secondprogram.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
