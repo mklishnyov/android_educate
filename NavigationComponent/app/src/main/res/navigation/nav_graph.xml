@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/superRam">
+
+    <fragment
+        android:id="@+id/batGranny"
+        android:name="com.example.navigationcomponent.BatGranny"
+        android:label="fragment_bat_granny"
+        tools:layout="@layout/fragment_bat_granny" >
+        <action
+            android:id="@+id/action_batGranny_to_ironPin"
+            app:destination="@id/ironPin"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/captainKarkar"
+        android:name="com.example.navigationcomponent.CaptainKarkar"
+        android:label="fragment_captain_karkar"
+        tools:layout="@layout/fragment_captain_karkar" >
+        <action
+            android:id="@+id/action_captainKarkar_to_yozh"
+            app:destination="@id/yozh"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ironPin"
+        android:name="com.example.navigationcomponent.IronPin"
+        android:label="fragment_iron_pin"
+        tools:layout="@layout/fragment_iron_pin" >
+        <action
+            android:id="@+id/action_ironPin_to_captainKarkar"
+            app:destination="@id/captainKarkar"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/losiX"
+        android:name="com.example.navigationcomponent.LosiX"
+        android:label="fragment_losi_x"
+        tools:layout="@layout/fragment_losi_x" >
+        <action
+            android:id="@+id/action_losiX_to_batGranny"
+            app:destination="@id/batGranny"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/pigWoman"
+        android:name="com.example.navigationcomponent.PigWoman"
+        android:label="fragment_pig_woman"
+        tools:layout="@layout/fragment_pig_woman" >
+        <action
+            android:id="@+id/action_pigWoman_to_losiX"
+            app:destination="@id/losiX"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/spyderKrosh"
+        android:name="com.example.navigationcomponent.SpyderKrosh"
+        android:label="fragment_spyder_krosh"
+        tools:layout="@layout/fragment_spyder_krosh" >
+        <action
+            android:id="@+id/action_spyderKrosh_to_pigWoman"
+            app:destination="@id/pigWoman"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/superRam"
+        android:name="com.example.navigationcomponent.SuperRam"
+        android:label="fragment_super_ram"
+        tools:layout="@layout/fragment_super_ram" >
+        <action
+            android:id="@+id/action_superRam_to_spyderKrosh"
+            app:destination="@id/spyderKrosh"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/yozh"
+        android:name="com.example.navigationcomponent.Yozh"
+        android:label="fragment_yozh"
+        tools:layout="@layout/fragment_yozh" >
+        <action
+            android:id="@+id/action_yozh_to_superRam"
+            app:destination="@id/superRam"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
