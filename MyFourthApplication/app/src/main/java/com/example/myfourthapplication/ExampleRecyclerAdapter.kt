@@ -14,15 +14,16 @@ class ExampleRecyclerAdapter(): RecyclerView.Adapter<ExampleRecyclerAdapter.Exam
     inner class ExampleViewHolder(private val binding: ExampleAdapterBinding): RecyclerView.ViewHolder(binding.root){
         fun onBind(itemMemes: MemesResponse.Data.Meme){
             binding.tvProduct.text = itemMemes.name
-            binding.tvPrice.text = itemMemes.url
             Glide.with(binding.imageView.context)
                 .load(itemMemes.url)
                 .into(binding.imageView)
         }
     }
 
-    fun submitList(list: List<MemesResponse.Data.Meme>){
-        adapterList.addAll(list)
+    fun submitList(list: List<MemesResponse.Data.Meme>) {
+        adapterList.clear()
+        adapterList.addAll(list.shuffled())
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(

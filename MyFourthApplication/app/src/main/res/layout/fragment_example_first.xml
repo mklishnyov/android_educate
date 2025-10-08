@@ -5,33 +5,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F44336"
+    android:background="#673AB7"
     tools:context=".ExampleFirstFragment">
 
     <TextView
         android:id="@+id/textViewFact"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:gravity="center"
+        android:orientation="vertical"
         android:text="First Fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:text="Change fragment"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFact"
-        app:layout_constraintStart_toStartOf="@+id/textViewFact"
-        app:layout_constraintTop_toTopOf="@+id/textViewFact"
-        />
+        android:layout_marginBottom="120dp"
+        android:text="Go to memes"
+        android:backgroundTint="@color/white"
+        android:textColor="#673AB6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
@@ -39,6 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Show Random Fact"
+        android:textColor="#673AB6"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/button" />
