@@ -28,6 +28,7 @@ class ExampleSecondFragment : Fragment() {
         binding.button.setOnClickListener {
             findNavController().navigate(R.id.action_exampleSecondFragment_to_exampleFirstFragment)
         }
+        
         lifecycleScope.launch {
             try {
                 val response = RetrofitService.apiServiceMemes.getMemes2()
